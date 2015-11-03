@@ -7,8 +7,12 @@
 //
 
 #import "DetailViewController.h"
+#import "ToDo.h"
 
 @interface DetailViewController ()
+
+@property (weak, nonatomic) IBOutlet UILabel *itemTitle;
+@property (weak, nonatomic) IBOutlet UILabel *itemDescription;
 
 @end
 
@@ -28,7 +32,9 @@
 - (void)configureView {
     // Update the user interface for the detail item.
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+        
+        self.itemTitle.text = self.detailItem.title;
+        self.itemDescription.text = self.detailItem.descript;
     }
 }
 

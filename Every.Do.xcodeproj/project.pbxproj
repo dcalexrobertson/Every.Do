@@ -115,6 +115,7 @@
 				FA4068991BE938A900DA3038 /* MasterViewController.m */,
 				FA40689B1BE938A900DA3038 /* DetailViewController.h */,
 				FA40689C1BE938A900DA3038 /* DetailViewController.m */,
+				FA40689E1BE938A900DA3038 /* Main.storyboard */,
 				FA4068921BE938A900DA3038 /* Supporting Files */,
 			);
 			path = Every.Do;
@@ -125,7 +126,6 @@
 			children = (
 				FA4068951BE938A900DA3038 /* AppDelegate.h */,
 				FA4068961BE938A900DA3038 /* AppDelegate.m */,
-				FA40689E1BE938A900DA3038 /* Main.storyboard */,
 				FA4068A11BE938AA00DA3038 /* Assets.xcassets */,
 				FA4068A31BE938AA00DA3038 /* LaunchScreen.storyboard */,
 				FA4068A61BE938AA00DA3038 /* Info.plist */,
