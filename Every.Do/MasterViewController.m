@@ -8,10 +8,11 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import "AddItemViewController.h"
 #import "ToDo.H"
 #import "ToDoCell.h"
 
-@interface MasterViewController ()
+@interface MasterViewController () <AddItemDelegate>
 
 @property NSMutableArray *objects;
 @end
@@ -48,7 +49,15 @@
     if (!self.objects) {
         self.objects = [[NSMutableArray alloc] init];
     }
-    [self.objects insertObject:[NSDate date] atIndex:0];
+    
+    [self performSegueWithIdentifier:@"addItem" sender:nil];
+}
+
+- (void)addItemWithTitle:(NSString *)title andDescript:(NSString *)description andPriority:(int)number
+{
+    ToDo *newItem = [[ToDo alloc] initWithTitle:title andDescript:description andPriority:number];
+    
+    [self.objects insertObject:newItem atIndex:0];
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
@@ -63,6 +72,11 @@
         [controller setDetailItem:object];
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
+    }
+    
+    if ([[segue identifier] isEqualToString:@"addItem"]) {
+        AddItemViewController *addItemVC = (AddItemViewController *)[segue destinationViewController];
+        addItemVC.delegate = self;
     }
 }
 

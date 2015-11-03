@@ -18,6 +18,7 @@
 		FA4068BB1BE938AA00DA3038 /* Every_DoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4068BA1BE938AA00DA3038 /* Every_DoUITests.m */; };
 		FA4068CA1BE938C400DA3038 /* ToDo.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4068C91BE938C400DA3038 /* ToDo.m */; };
 		FA4068CE1BE93B7300DA3038 /* ToDoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4068CD1BE93B7300DA3038 /* ToDoCell.m */; };
+		FA4068D11BE9637C00DA3038 /* AddItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4068D01BE9637C00DA3038 /* AddItemViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		FA4068C91BE938C400DA3038 /* ToDo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ToDo.m; path = ../ToDo.m; sourceTree = "<group>"; };
 		FA4068CC1BE93B7300DA3038 /* ToDoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoCell.h; sourceTree = "<group>"; };
 		FA4068CD1BE93B7300DA3038 /* ToDoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoCell.m; sourceTree = "<group>"; };
+		FA4068CF1BE9637C00DA3038 /* AddItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddItemViewController.h; sourceTree = "<group>"; };
+		FA4068D01BE9637C00DA3038 /* AddItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddItemViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +118,8 @@
 				FA4068991BE938A900DA3038 /* MasterViewController.m */,
 				FA40689B1BE938A900DA3038 /* DetailViewController.h */,
 				FA40689C1BE938A900DA3038 /* DetailViewController.m */,
+				FA4068CF1BE9637C00DA3038 /* AddItemViewController.h */,
+				FA4068D01BE9637C00DA3038 /* AddItemViewController.m */,
 				FA40689E1BE938A900DA3038 /* Main.storyboard */,
 				FA4068921BE938A900DA3038 /* Supporting Files */,
 			);
@@ -295,6 +300,7 @@
 			files = (
 				FA4068CA1BE938C400DA3038 /* ToDo.m in Sources */,
 				FA4068971BE938A900DA3038 /* AppDelegate.m in Sources */,
+				FA4068D11BE9637C00DA3038 /* AddItemViewController.m in Sources */,
 				FA40689A1BE938A900DA3038 /* MasterViewController.m in Sources */,
 				FA4068941BE938A900DA3038 /* main.m in Sources */,
 				FA40689D1BE938A900DA3038 /* DetailViewController.m in Sources */,
