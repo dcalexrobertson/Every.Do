@@ -9,8 +9,8 @@
 #import "MasterViewController.h"
 #import "DetailViewController.h"
 #import "AddItemViewController.h"
-#import "ToDo.H"
 #import "ToDoCell.h"
+#import "ToDo.H"
 
 @interface MasterViewController () <AddItemDelegate>
 
@@ -58,9 +58,22 @@
     ToDo *newItem = [[ToDo alloc] initWithTitle:title andDescript:description andPriority:number];
     
     [self.objects insertObject:newItem atIndex:0];
+    
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
+
+- (IBAction)swipeAway:(UISwipeGestureRecognizer *)sender {
+
+    CGPoint swipeLocation = [sender locationInView:self.tableView];
+    
+    NSIndexPath *indexPath = [self.tableView indexPathForRowAtPoint:swipeLocation];
+    
+    [self.objects removeObjectAtIndex:indexPath.row];
+    
+    [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+}
+
 
 #pragma mark - Segues
 
