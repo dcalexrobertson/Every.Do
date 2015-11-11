@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@protocol AddItemDelegate <NSObject>
+@protocol AddItemControllerDelegate <NSObject>
 
 - (void)addItemWithTitle:(NSString *)title andDescript:(NSString *)description andPriority:(int)number;
 
@@ -16,6 +16,6 @@
 
 @interface AddItemViewController : UIViewController
 
-@property (nonatomic, weak) id <AddItemDelegate> delegate;
+@property (nonatomic, weak) id <AddItemControllerDelegate> delegate;
 
 @end

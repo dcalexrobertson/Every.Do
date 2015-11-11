@@ -2,19 +2,21 @@
 //  ToDo.h
 //  Every.Do
 //
-//  Created by Alex on 2015-11-03.
+//  Created by Alex on 2015-11-11.
 //  Copyright © 2015 Alex. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface ToDo : NSObject
+NS_ASSUME_NONNULL_BEGIN
 
-@property (nonatomic) NSString *title;
-@property (nonatomic) NSString *descript;
-@property int priority;
-@property BOOL isCompleted;
+@interface ToDo : NSManagedObject
 
-- (instancetype)initWithTitle:(NSString *)title andDescript:(NSString *)description andPriority:(int)number;
+// Insert code here to declare functionality of your managed object subclass
 
 @end
+
+NS_ASSUME_NONNULL_END
+
+#import "ToDo+CoreDataProperties.h"
