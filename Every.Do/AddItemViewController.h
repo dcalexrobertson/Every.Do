@@ -10,7 +10,7 @@
 
 @protocol AddItemControllerDelegate <NSObject>
 
-- (void)addItemWithTitle:(NSString *)title andDescript:(NSString *)description andPriority:(int)number;
+- (void)addItemWithTitle:(NSString *)title andDescript:(NSString *)description andCategory:(NSString *)category;
 
 @end
 

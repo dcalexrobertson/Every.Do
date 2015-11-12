@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		FA36769D1BF3E9BC003C3542 /* CoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = FA36769C1BF3E9BC003C3542 /* CoreDataStack.m */; };
 		FA3676A01BF3EABA003C3542 /* ToDoModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FA36769E1BF3EABA003C3542 /* ToDoModel.xcdatamodeld */; };
-		FA3676AC1BF3F078003C3542 /* ToDo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3676A91BF3F078003C3542 /* ToDo+CoreDataProperties.m */; };
 		FA3676AD1BF3F078003C3542 /* ToDo.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3676AB1BF3F078003C3542 /* ToDo.m */; };
+		FA3676B91BF41E2E003C3542 /* ToDo+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3676B81BF41E2E003C3542 /* ToDo+CoreDataProperties.m */; };
 		FA4068941BE938A900DA3038 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4068931BE938A900DA3038 /* main.m */; };
 		FA4068971BE938A900DA3038 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4068961BE938A900DA3038 /* AppDelegate.m */; };
 		FA40689A1BE938A900DA3038 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4068991BE938A900DA3038 /* MasterViewController.m */; };
@@ -45,10 +45,10 @@
 		FA36769B1BF3E9BC003C3542 /* CoreDataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataStack.h; sourceTree = "<group>"; };
 		FA36769C1BF3E9BC003C3542 /* CoreDataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataStack.m; sourceTree = "<group>"; };
 		FA36769F1BF3EABA003C3542 /* ToDoModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ToDoModel.xcdatamodel; sourceTree = "<group>"; };
-		FA3676A81BF3F078003C3542 /* ToDo+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ToDo+CoreDataProperties.h"; path = "../ToDo+CoreDataProperties.h"; sourceTree = "<group>"; };
-		FA3676A91BF3F078003C3542 /* ToDo+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ToDo+CoreDataProperties.m"; path = "../ToDo+CoreDataProperties.m"; sourceTree = "<group>"; };
 		FA3676AA1BF3F078003C3542 /* ToDo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ToDo.h; path = ../ToDo.h; sourceTree = "<group>"; };
 		FA3676AB1BF3F078003C3542 /* ToDo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ToDo.m; path = ../ToDo.m; sourceTree = "<group>"; };
+		FA3676B71BF41E2E003C3542 /* ToDo+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "ToDo+CoreDataProperties.h"; path = "../ToDo+CoreDataProperties.h"; sourceTree = "<group>"; };
+		FA3676B81BF41E2E003C3542 /* ToDo+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "ToDo+CoreDataProperties.m"; path = "../ToDo+CoreDataProperties.m"; sourceTree = "<group>"; };
 		FA40688F1BE938A900DA3038 /* Every.Do.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Every.Do.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA4068931BE938A900DA3038 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FA4068951BE938A900DA3038 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -197,8 +197,8 @@
 		FA4068CB1BE939A500DA3038 /* Managed Objects */ = {
 			isa = PBXGroup;
 			children = (
-				FA3676A81BF3F078003C3542 /* ToDo+CoreDataProperties.h */,
-				FA3676A91BF3F078003C3542 /* ToDo+CoreDataProperties.m */,
+				FA3676B71BF41E2E003C3542 /* ToDo+CoreDataProperties.h */,
+				FA3676B81BF41E2E003C3542 /* ToDo+CoreDataProperties.m */,
 				FA3676AA1BF3F078003C3542 /* ToDo.h */,
 				FA3676AB1BF3F078003C3542 /* ToDo.m */,
 			);
@@ -344,7 +344,7 @@
 				FA40689D1BE938A900DA3038 /* DetailViewController.m in Sources */,
 				FA4068CE1BE93B7300DA3038 /* ToDoCell.m in Sources */,
 				FA3676A01BF3EABA003C3542 /* ToDoModel.xcdatamodeld in Sources */,
-				FA3676AC1BF3F078003C3542 /* ToDo+CoreDataProperties.m in Sources */,
+				FA3676B91BF41E2E003C3542 /* ToDo+CoreDataProperties.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

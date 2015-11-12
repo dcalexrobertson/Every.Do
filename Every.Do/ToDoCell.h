@@ -12,7 +12,5 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *title;
 @property (weak, nonatomic) IBOutlet UILabel *descript;
-@property (weak, nonatomic) IBOutlet UILabel *priority;
-
 
 @end

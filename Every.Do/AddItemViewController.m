@@ -8,11 +8,12 @@
 
 #import "AddItemViewController.h"
 
-@interface AddItemViewController ()
+@interface AddItemViewController () <UITextFieldDelegate>
+
+@property (nonatomic) NSString *categoryText;
 
 @property (weak, nonatomic) IBOutlet UITextField *titleField;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionField;
-@property (weak, nonatomic) IBOutlet UITextField *priorityField;
 
 @end
 
@@ -21,6 +22,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.titleField.delegate = self;
+    self.descriptionField.delegate = self;
+    
+    self.titleField.text = [[NSUserDefaults standardUserDefaults] valueForKey:@"Default Task Title"];
+    
+    self.categoryText = @"mind";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -28,9 +35,45 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)submitInfo:(id)sender {
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
     
-    [self.delegate addItemWithTitle:self.titleField.text andDescript:self.descriptionField.text andPriority:[self.priorityField.text intValue]];
+    [self addNewItem];
+    [textField resignFirstResponder];
+    
+    return YES;
+}
+
+- (IBAction)categorySelectorDidChange:(UISegmentedControl *)sender {
+    
+    switch (sender.selectedSegmentIndex) {
+            
+        case 0:
+            self.categoryText = @"mind";
+            break;
+            
+        case 1:
+            self.categoryText = @"body";
+            break;
+            
+        case 2:
+            self.categoryText = @"spirit";
+            break;
+            
+        default:
+            self.categoryText = @"mind";
+    }
+    
+}
+
+- (IBAction)cancelButtonPressed:(id)sender {
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+}
+
+- (void)addNewItem {
+    
+    [self.delegate addItemWithTitle:self.titleField.text andDescript:self.descriptionField.text andCategory:self.categoryText];
     
     [self dismissViewControllerAnimated:YES completion:nil];
     

@@ -15,6 +15,6 @@
 
 @dynamic title;
 @dynamic descript;
-@dynamic priority;
+@dynamic category;
 
 @end

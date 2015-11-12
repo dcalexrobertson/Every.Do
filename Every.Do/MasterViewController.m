@@ -33,30 +33,43 @@
     
     fetchRequest.fetchLimit = 10;
     
-    NSSortDescriptor *sortByTitle = [NSSortDescriptor sortDescriptorWithKey:@"title" ascending:NO];
+    NSSortDescriptor *sortByCategory = [NSSortDescriptor sortDescriptorWithKey:@"category" ascending:YES];
     
-    fetchRequest.sortDescriptors = @[sortByTitle];
+    fetchRequest.sortDescriptors = @[sortByCategory];
     
     NSError *fetchError = nil;
     
     
-    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.stack.context sectionNameKeyPath:@"title" cacheName:nil];
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.stack.context sectionNameKeyPath:@"category" cacheName:nil];
     
     self.fetchedResultsController.delegate = self;
     [self.fetchedResultsController performFetch:&fetchError];
     
     
     // Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+    addButton.tintColor = [UIColor colorWithRed:255.0/255.0 green:127.0/255.0 blue:0 alpha:1];
+    
     self.navigationItem.rightBarButtonItem = addButton;
-    self.detailViewController = (DetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    self.clearsSelectionOnViewWillAppear = self.splitViewController.isCollapsed;
-    [super viewWillAppear:animated];
+- (IBAction)settingsBarButtonPressed:(id)sender {
+    NSString *message = @"Set some default shit for your to do list items, yo.";
+    
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Motherfucking Settings." message:message preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alert addTextFieldWithConfigurationHandler:^(UITextField *textField) {
+        textField.placeholder = @"Name of Task";
+    }];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil]];
+    [alert addAction:[UIAlertAction actionWithTitle:@"Apply Change" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        UITextField *textField = alert.textFields[0];
+        [[NSUserDefaults standardUserDefaults] setObject:textField.text forKey:@"Default Task Title"];
+    }]];
+    
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,12 +85,12 @@
     [self performSegueWithIdentifier:@"addItem" sender:nil];
 }
 
-- (void)addItemWithTitle:(NSString *)title andDescript:(NSString *)description andPriority:(int)number
+- (void)addItemWithTitle:(NSString *)title andDescript:(NSString *)description andCategory:(NSString *)category
 {
     ToDo *newToDo = [NSEntityDescription insertNewObjectForEntityForName:@"ToDo" inManagedObjectContext:self.stack.context];
     newToDo.title = title;
     newToDo.descript = description;
-    newToDo.priority = [NSNumber numberWithInt:number];
+    newToDo.category = category;
     
     NSError *saveError = nil;
     
@@ -98,7 +111,7 @@
         
         ToDo *item = [self.fetchedResultsController objectAtIndexPath:indexPath];
         
-        DetailViewController *controller = (DetailViewController *)[[segue destinationViewController] topViewController];
+        DetailViewController *controller = [segue destinationViewController];
         [controller setDetailItem:item];
         controller.navigationItem.leftBarButtonItem = self.splitViewController.displayModeButtonItem;
         controller.navigationItem.leftItemsSupplementBackButton = YES;
@@ -117,6 +130,12 @@
     return [[self.fetchedResultsController sections] count];
 }
 
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    id<NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
+    
+    return [sectionInfo name];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     id<NSFetchedResultsSectionInfo> sectionInfo = [self.fetchedResultsController sections][section];
@@ -132,7 +151,6 @@
     
     cell.title.text = item.title;
     cell.descript.text = item.descript;
-    cell.priority.text = [NSString stringWithFormat:@"#%@", item.priority];
     return cell;
 }
 

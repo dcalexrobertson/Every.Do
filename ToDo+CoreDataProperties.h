@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nullable, nonatomic, retain) NSString *title;
 @property (nullable, nonatomic, retain) NSString *descript;
-@property (nullable, nonatomic, retain) NSNumber *priority;
+@property (nullable, nonatomic, retain) NSString *category;
 
 @end
 
